@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ติดตั้ง JayShop</title>
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  :root { --bg: #f4f4f6; --card: #ffffff; --text: #16161a; --muted: #6b6b76; --accent: #7b3cff; --warn: #b42318; --warn-bg: #fdecea; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0e0e12; --card: #1a1a21; --text: #f1f1f4; --muted: #a0a0ab; --accent: #a27bff; --warn: #ffb4ab; --warn-bg: #3a1714; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 -apple-system, "Sukhumvit Set", "Thonburi", sans-serif; }
+  main { max-width: 480px; margin: 0 auto; padding: 32px 16px 48px; }
+  .head { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .head img { width: 72px; height: 72px; border-radius: 16px; }
+  h1 { font-size: 24px; margin: 0; }
+  .ver { color: var(--muted); font-size: 14px; }
+  .install { display: block; text-align: center; background: var(--accent); color: #fff; text-decoration: none;
+             font-weight: 600; font-size: 18px; padding: 16px; border-radius: 14px; margin: 8px 0 24px; }
+  .warn { display: none; background: var(--warn-bg); color: var(--warn); padding: 14px 16px; border-radius: 12px; margin-bottom: 16px; }
+  section { background: var(--card); border-radius: 14px; padding: 4px 18px; margin-bottom: 16px; }
+  h2 { font-size: 17px; margin: 16px 0 8px; }
+  ol, ul { padding-left: 22px; margin: 0 0 16px; }
+  li { margin-bottom: 6px; }
+  .muted { color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="head">
+    <img src="icon-512.png" alt="">
+    <div><h1>JayShop</h1><div class="ver">รุ่นทดสอบ 0.0.1 (6) · 2026-10-26</div></div>
+  </div>
+
+  <div class="warn" id="notSafari">เปิดหน้านี้ใน <b>Safari</b> ก่อน (ใน LINE, Facebook หรือ Chrome กดติดตั้งไม่ได้) กดปุ่มแชร์หรือ ⋯ แล้วเลือก "เปิดใน Safari"</div>
+  <div class="warn" id="notIos">หน้านี้ใช้ติดตั้งบน iPhone หรือ iPad เท่านั้น</div>
+
+  <a class="install" href="itms-services://?action=download-manifest&amp;url=https%3A%2F%2Ffbpinote-svg.github.io%2Fjayshop-install%2Fmanifest.plist">ติดตั้ง JayShop</a>
+
+  <section>
+    <h2>ติดตั้ง</h2>
+    <ol>
+      <li>กดปุ่ม "ติดตั้ง JayShop" แล้วกด "ติดตั้ง" ในหน้าต่างที่ขึ้นมา</li>
+      <li>กลับไปที่หน้าโฮม รอไอคอน JayShop โหลดจนเสร็จ</li>
+      <li>เปิดแอปครั้งแรก ถ้าขึ้นว่าต้องเปิด "โหมดนักพัฒนา" ไปที่ การตั้งค่า &gt; ความเป็นส่วนตัวและความปลอดภัย &gt; โหมดนักพัฒนา &gt; เปิด เครื่องจะรีสตาร์ท แล้วกด "เปิด" อีกครั้ง (ทำครั้งเดียว)</li>
+      <li>เข้าสู่ระบบด้วยชื่อผู้ใช้หรืออีเมลและรหัสผ่านของบัญชีร้าน</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>ถ้าติดตั้งไม่ได้</h2>
+    <ul>
+      <li>ขึ้นว่า "ไม่สามารถติดตั้งแอปได้": เครื่องนี้ยังไม่ได้ลงทะเบียน ส่งรหัสเครื่อง (UDID) ให้ร้าน แล้วรอร้านแจ้งว่าพร้อม</li>
+      <li>ถ้าเคยลง JayShop ด้วย Sideloadly ให้ลบแอปตัวเก่าออกก่อน</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>อัปเดต</h2>
+    <ul>
+      <li>เปิดหน้านี้แล้วกด "ติดตั้ง JayShop" อีกครั้ง ข้อมูลในแอปไม่หาย</li>
+    </ul>
+    <p class="muted">ในแอปไม่มีระบบเติมเงิน เติมเงินที่เว็บร้าน</p>
+  </section>
+</main>
+<script>
+  var ua = navigator.userAgent;
+  var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var inApp = /Line\/|FBAN|FBAV|Instagram|CriOS|FxiOS|EdgiOS|GSA\//.test(ua);
+  if (!ios) document.getElementById("notIos").style.display = "block";
+  else if (inApp) document.getElementById("notSafari").style.display = "block";
+</script>
+</body>
+</html>
